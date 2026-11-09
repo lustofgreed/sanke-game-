@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://christmas-royel.pages.dev/sitemap.xml

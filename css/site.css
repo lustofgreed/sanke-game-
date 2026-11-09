@@ -1,0 +1,129 @@
+/* =========================================================
+   Zmey Gorynych Royal — site-wide stylesheet
+   Shared by the informational pages + blog. Mirrors the game's
+   brand palette (ink, saffron, ground) and font feel.
+   No external assets are fetched; type stacks fall back locally.
+   ========================================================= */
+
+:root{
+  --ink:#10323a;
+  --ink-soft:#4a6f78;
+  --glass:rgba(255,255,255,.9);
+  --glass-dim:rgba(255,255,255,.72);
+  --saffron:#ffb627;
+  --saffron-deep:#c97a00;
+  --coral:#e03a4e;
+  --leaf:#1f7a4a;
+  --ground:#dfeaf5;
+  --shade:rgba(16,50,58,.6);
+  --white:#ffffff;
+  --f-display:'Lilita One','Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+  --f-body:'Baloo 2',ui-rounded,'Segoe UI',system-ui,sans-serif;
+  --maxw:960px;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--ground);
+  -webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;min-height:100vh;
+}
+a{color:var(--leaf);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- Header / nav ---------- */
+.site-header{
+  background:var(--ink);
+  color:var(--white);
+  box-shadow:0 4px 0 rgba(16,50,58,.3);
+}
+.site-header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.brand{
+  font-family:var(--f-display);font-size:22px;letter-spacing:.02em;color:var(--white);
+}
+.brand .star{color:var(--saffron)}
+.site-nav{display:flex;gap:6px;flex-wrap:wrap}
+.site-nav a{
+  color:var(--white);opacity:.85;font-weight:600;font-size:15px;
+  padding:6px 10px;border-radius:10px;transition:opacity .12s,background .12s;
+}
+.site-nav a:hover{opacity:1;background:rgba(255,255,255,.12);text-decoration:none}
+.site-nav a[aria-current="page"]{opacity:1;background:var(--saffron);color:var(--ink)}
+
+/* ---------- Main ---------- */
+.site-main{flex:1;width:100%;max-width:var(--maxw);margin:0 auto;padding:32px 20px 56px}
+.site-main h1{
+  font-family:var(--f-display);font-weight:400;font-size:34px;line-height:1.15;
+  margin:0 0 8px;color:var(--ink);
+}
+.site-main h2{font-family:var(--f-display);font-weight:400;font-size:26px;margin:34px 0 10px;color:var(--ink)}
+.site-main h3{font-size:19px;margin:22px 0 8px;color:var(--ink)}
+.site-main p{margin:0 0 16px}
+.site-main ul,.site-main ol{margin:0 0 18px;padding-left:24px}
+.site-main li{margin-bottom:8px}
+.lead{font-size:19px;color:var(--ink-soft)}
+
+.card{
+  background:var(--glass);border-radius:18px;padding:22px 24px;margin-bottom:22px;
+  box-shadow:0 4px 0 rgba(16,50,58,.12);
+}
+.pageintro{margin-bottom:28px}
+
+/* Buttons */
+.btn{
+  display:inline-block;border:0;border-radius:16px;cursor:pointer;
+  font-family:var(--f-display);font-size:18px;letter-spacing:.02em;
+  padding:12px 22px;color:var(--ink);
+  background:linear-gradient(180deg,#ffd166 0%,var(--saffron) 48%,#f0a013 100%);
+  box-shadow:0 4px 0 var(--saffron-deep),inset 0 1px 0 rgba(255,255,255,.6);
+  transition:transform .08s ease,box-shadow .08s ease,filter .12s ease;
+  text-decoration:none;
+}
+.btn:hover{filter:brightness(1.06);transform:translateY(-1px);text-decoration:none}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--saffron-deep)}
+.btn.ghost{
+  color:var(--ink);background:linear-gradient(180deg,#fff,#f2f6f4 55%,#dfe8e4);
+  box-shadow:0 4px 0 #9fb2ad;
+}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--ink);color:var(--white);margin-top:auto}
+.site-footer-inner{
+  max-width:var(--maxw);margin:0 auto;padding:22px 20px;
+  display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;
+}
+.site-links{display:flex;gap:8px 18px;flex-wrap:wrap;justify-content:center}
+.site-links a{color:var(--white);opacity:.85;font-weight:600;font-size:15px}
+.site-links a:hover{opacity:1;text-decoration:underline}
+.footer-note{opacity:.65;font-size:13px;margin:0}
+
+/* ---------- Blog ---------- */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.post-card{background:var(--glass);border-radius:18px;padding:20px;box-shadow:0 4px 0 rgba(16,50,58,.12);display:block;color:var(--ink);text-decoration:none;transition:transform .1s ease,box-shadow .1s ease}
+.post-card:hover{transform:translateY(-2px);box-shadow:0 6px 0 rgba(16,50,58,.15);text-decoration:none}
+.post-card .cat{font:800 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--saffron-deep)}
+.post-card h2{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.2;margin:8px 0 6px}
+.post-card .meta{font-size:13px;color:var(--ink-soft)}
+.post-card p{margin:10px 0 0;font-size:15px}
+
+.post-meta{color:var(--ink-soft);font-size:14px;margin:0 0 20px;display:flex;gap:14px;flex-wrap:wrap}
+.post-body h2{border-bottom:2px solid rgba(16,50,58,.12);padding-bottom:6px}
+.tip{background:rgba(255,182,39,.16);border-left:4px solid var(--saffron);border-radius:0 12px 12px 0;padding:12px 16px;margin:18px 0}
+
+/* ---------- Responsive ---------- */
+@media (max-width:640px){
+  .site-main{padding-top:22px}
+  .site-main h1{font-size:27px}
+  .site-main h2{font-size:22px}
+  .card{padding:18px}
+  .btn{width:100%;text-align:center}
+}
